@@ -2,11 +2,17 @@ let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 
 
-let background = new Rectangle(0,0,400,400,"#39ff9e");
-let b1 = new Ball(50,200,10,"#997eff",1);
-let b2 = new Ball(250,200,40,"#ff8265",10000);
+ctx.font = "30px Arial";
 
-let collisions=1;
+ctx.textAlign = "center";
+
+let accuracy=4;
+
+let background = new Rectangle(0,0,400,400,"#333333");
+let b1 = new Ball(50,200,10,"#997eff",1);
+let b2 = new Ball(250,200,40,"#ff8265",100**accuracy);
+
+let collisions=0;
 
 
 let frames=1000;
@@ -14,7 +20,7 @@ b2.vx=-1/frames;
 
 function loop()
 {
-    for(let i=0;i<1000;i++)
+    for(let i=0;i<frames;i++)
     {
         background.draw();
         b1.move(b2);
@@ -23,20 +29,22 @@ function loop()
         {
             b1.vx*=-1;
             b1.x=2*b1.radius-b1.x;
-            console.log(collisions++);
+            collisions++;
         }
         if(b2.collision(b1))
         {
             b2.bounce(b1);
-
-            console.log(collisions++);
+            collisions++;
         }
     }
-
+    ctx.fillStyle = "#d8fffd";
+    let text=collisions+"";
+    if(collisions>0)
+        ctx.fillText(text[0]+","+text.substr(1), canvas.width/2, 300);
     b1.draw();
     b2.draw();
 }
 
 
 
-window.setInterval(loop,8);
+window.setInterval(loop,2);
