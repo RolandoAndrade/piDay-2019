@@ -37,7 +37,7 @@ function loop()
             collisions++;
         }
     }
-    ctx.fillStyle = "#d8fffd";
+    ctx.fillStyle = "#fff";
     let text=collisions+"";
     if(collisions>0)
         ctx.fillText(text[0]+","+text.substr(1), canvas.width/2, 300);
