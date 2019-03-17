@@ -12,12 +12,6 @@ class Ball
     move()
     {
         this.x+=this.vx;
-        if(this.x<0)
-            this.circle.x=this.radius;
-        else if(this.radius===40&&this.x-this.radius<=20)
-            this.circle.x=20+this.radius;
-        else
-            this.circle.x=this.x;
     }
 
     collision(ball)
@@ -44,6 +38,12 @@ class Ball
 
     draw()
     {
+        if(this.x<0)
+            this.circle.x=this.radius;
+        else if(this.radius===40&&this.x-this.radius<=20)
+            this.circle.x=20+this.radius;
+        else
+            this.circle.x=this.x;
         this.circle.draw();
     }
 }
