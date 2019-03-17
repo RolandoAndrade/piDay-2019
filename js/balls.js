@@ -42,9 +42,9 @@ class Ball
             this.circle.x=this.radius;
         else
             this.circle.x=this.x;
-        ball.circle.x=ball.x;
+        ball.circle.x=Math.max(ball.x,2*this.radius+ball.radius);
         if(this.circle.x+this.radius>ball.circle.x-ball.radius)
-            ball.circle.x=this.circle.x+this.radius+ball.radius;
+            this.circle.x=ball.circle.x-ball.radius-this.radius;
         this.circle.draw();
         ball.circle.draw();
     }
