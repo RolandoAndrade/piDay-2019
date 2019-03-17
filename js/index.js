@@ -41,8 +41,7 @@ function loop()
     let text=collisions+"";
     if(collisions>0)
         ctx.fillText(text[0]+","+text.substr(1), canvas.width/2, 300);
-    b1.draw();
-    b2.draw();
+    b1.draw(b2);
 }
 
 

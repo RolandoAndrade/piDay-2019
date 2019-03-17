@@ -36,14 +36,16 @@ class Ball
         }
     }
 
-    draw()
+    draw(ball)
     {
         if(this.x<0)
             this.circle.x=this.radius;
-        else if(this.radius===40&&this.x-this.radius<=20)
-            this.circle.x=20+this.radius;
         else
             this.circle.x=this.x;
+        ball.circle.x=ball.x;
+        if(this.circle.x+this.radius>ball.circle.x-ball.radius)
+            ball.circle.x=this.circle.x+this.radius+ball.radius;
         this.circle.draw();
+        ball.circle.draw();
     }
 }
