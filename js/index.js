@@ -6,7 +6,7 @@ ctx.font = "30px Arial";
 
 ctx.textAlign = "center";
 
-let accuracy=5;
+let accuracy=4;
 
 let background = new Rectangle(0,0,400,400,"#333333");
 let b1 = new Ball(50,200,10,"#997eff",1);
